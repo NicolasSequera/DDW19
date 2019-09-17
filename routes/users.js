@@ -31,6 +31,7 @@ router.post('/', function(req, res, next) {
                     return next(err);
                 } else {
                     req.session.userId = user._id;
+                    console.log('El usuario fue creado');
                     return res.redirect("/votacion");
                 }
             });
