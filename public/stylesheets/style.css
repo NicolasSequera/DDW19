@@ -5,4 +5,7 @@ body {
 a {
   color: #00B7FF; }
 
-/*# sourceMappingURL=style.css.map */
+.cargaDatos {
+  margin-left: 20%;
+  margin-right: 20%;
+}

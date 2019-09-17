@@ -1,36 +1,31 @@
 <% include header.ejs %>
-
-    <div class="container">
+<body class="text-center">
+    <div class="form-singin">
         <div class="card mt-5 text-light bg-dark shadow-lg">
             <div class="card-header">
-                <h2 class="card-title">Formulario para la votacion</h2>
+                <h2 class="card-title">ELECCIONES 2019</h2>
             </div>
             <div class="card text-primary shadow-lg">
-
                 <div class="card-body">
-                    <!--<div class="card-title col-md-6 col-lg-6">
-                        <h3>Registrarse</h3>
-                    </div>-->
-                    <div class="formReg col-md-6 col-lg-6">
-                        <form action="/users" method="POST">
-                            <div class="form-group">
-                                <input class="form-control" type="text" name="dni" placeholder="Documento" required>
-                                <input class="form-control" type="text" name="name" placeholder="Nombre" required>
-                                <input class="form-control" type="text" name="lastname" placeholder="Apellido" required>
-                                <select class="form-control" name="sex">
-                                    <option value = "1" > Hombre </option>
-                                    <option value = "2" > Mujer </option>
-                                </select>
-                                <!--<input class="form-control" type="text" name="sex" placeholder="Sexo" required>-->
-                            </div>
-                            <div class="btnReg">
-                                <input class="btn btn-success btn-lg" type="submit" value="Consultar">
-                            </div>
-                        </form>
+                    <div class="card-title">
+                        <h3>Ingresar a Votar</h3>
                     </div>
+                    <form action="/users" method="POST">
+                        <div class="cargaDatos">
+                            <input class="form-control" type="text" name="logname" 
+                            placeholder="Nombre" required>
+                            <input class="form-control" type="text" name="logdni" 
+                            placeholder="DNI" required>
+                            <select class="form-control" name="logsex">
+                                <option value ="male">Hombre</option>
+                                <option value ="female">Mujer</option>    
+                            </select>
+                        </div>
+                        <a class="btn btn-secondary btn-lg" href="/">Volver</a>
+                        <input class="btn btn-success btn-lg" type="submit" value="VOTAR">
+                    </form>
                 </div>
             </div>
         </div>
     </div>
-
-    <% include footer.ejs %>
+</div>

@@ -1,0 +1,50 @@
+<% include header.ejs %>
+<body class="text-center">
+    <div class="card mt-5 text-light bg-dark shadow-lg">
+        <div class="card-header">
+            <h2 class="card-title">ELECCIONES 2019</h2>
+        </div>
+    </div>
+    <div class="card">
+        <form action="/saveVote" method="POST">
+            <table class="table">
+                <thead class="thead-dark">
+                    <tr class="header">
+                        <th></th>
+                        <th>Nombre</th>
+                        <th>Apellido</th>
+                        <th>Sexo</th>
+                        <th>Partido</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <% locals.candidates.forEach((item) => { %>
+                        <tr>
+                            <td>
+                                <div class="checkbox"><input type="checkbox" name="cand" value="<%= item._id %>"></div>
+                            </td>
+                            <td>
+                                <%= item.name %>
+                            </td>
+                            <td>
+                                <%= item.lastName %>
+                            </td>
+                            <td>
+                                <%= item.sex %>
+                            </td>
+                            <td>
+                                <%= item.team %>
+                            </td>
+                            <td>
+                                <img src="<%= item.candFile %>" class="img-fluid img-thumbnail">
+                            </td>
+                        </tr>
+                    <% }); %>
+                </tbody>
+            </table>
+            <a class="btn btn-secondary btn-lg" href="/login">Volver</a>
+            <input class="btn btn-success btn-lg" type="submit" value="VOTAR">
+        </form>
+    </div>
+</body>

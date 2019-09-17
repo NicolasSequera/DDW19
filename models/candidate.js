@@ -1,27 +1,49 @@
+//Modelo de datos para cada uno de los candidatos
 var mongoose = require('mongoose');
 
-var UserSchema = new mongoose.Schema(
+var CandidateSchema = new mongoose.Schema(
     {
-        nombre: {
+        name: {
             type: String,
             required: true
         },
-        apellido: {
+        lastName: {
             type: String,
             required: true
         },
-        partido:{
+        sex: {
             type: String,
             required: true,
             trim: true
         },
-        sexo:{
+        team: {
+            type: String,
+            required: true,
+            trim: true
+        },
+        cantVotes: {
             type: Number,
+            required: true,
+            trim: true
+        },
+        candFile: {
+            type: String,
             required: true
         }
     }
 );
 
-var Candidate = mongoose.model("Candidate", UserSchema);
+CandidateSchema.statics.countVote = function(id, callback) {
+    Candidate.updateOne({ _id: id },
+        { 
+            $inc: { cantVotes: 1 }
+        },
+        (err) => {
+        if (err) {
+            return callback(err);
+        }
+    });
+};
 
+var Candidate = mongoose.model("Candidate", CandidateSchema);
 module.exports = Candidate;
